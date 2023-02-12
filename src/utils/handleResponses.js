@@ -9,7 +9,7 @@
 //*     }
 //* }
 
-//? Para respuestas exitosas
+//? Successful reponses
 const success = ({status, data, message, res}) => {
     res.status(status).json({
         error: false,
@@ -19,9 +19,7 @@ const success = ({status, data, message, res}) => {
     })
 } 
 
-
-
-//? Para respuestas de errores
+//? Error responses
 const error = ({status, data, message, res, fields}) => {
     res.status(status).json({
         error: true,

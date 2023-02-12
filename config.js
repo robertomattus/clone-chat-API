@@ -1,3 +1,4 @@
+require ('dotenv').config()
 
 const configs = {
     api: {
@@ -7,29 +8,27 @@ const configs = {
     },
     db: {
         development: {
-            //? Aqui deberan estar las configuraciones para la conexion con sequelize
             dialect: 'postgres',
             host: 'localhost',
             port: 5432,
             username: 'postgres',
-            password: 'root',
+            password: process.env.DEV_DB_PASS,
             database: 'chat-db',
             define: {
-                timestamps: true, //? Nos obliga a que todas las tablas tengan la propiedad createdAt y upadtedAt
+                timestamps: true, 
                 underscored: true,
                 underscoredAll: true 
             }
         },
         production: {
-            //? Aqui deberan estar las configuraciones para la conexion con sequelize
             dialect: 'postgres',
             host: 'localhost',
             port: 5432,
             username: 'postgres',
-            password: 'root',
+            password: process.env.DEV_DB_PASS,
             database: 'chat-db',
             define: {
-                timestamps: true, //? Nos obliga a que todas las tablas tengan la propiedad createdAt y upadtedAt
+                timestamps: true, 
                 underscored: true,
                 underscoredAll: true 
             },
@@ -41,15 +40,14 @@ const configs = {
             }
         },
         testing: {
-            //? Aqui deberan estar las configuraciones para la conexion con sequelize
             dialect: 'postgres',
             host: 'localhost',
             port: 5432,
             username: 'postgres',
-            password: 'root',
+            password: process.env.DEV_DB_PASS,
             database: 'chat-db',
             define: {
-                timestamps: true, //? Nos obliga a que todas las tablas tengan la propiedad createdAt y upadtedAt
+                timestamps: true, 
                 underscored: true,
                 underscoredAll: true 
             }

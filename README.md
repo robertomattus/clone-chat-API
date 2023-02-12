@@ -1,5 +1,3 @@
-
-
 [X] Manejar usuarios
 [X] Esos usarios puedan inicar sesion 
 [X] Crear conversaciones
@@ -14,21 +12,3 @@
 - Crear links para invitar gente a un grupo
 
 ![Database Diagram](https://i.imgur.com/IHhtWv2.png)
-
-
-Ejemplo de respuestas exitosas: 
-
-```JavaScript
-{
-    error: false,
-    status: 201,
-    message: 'User created Succesfully',
-    data: {
-        id: 5,
-        firstName: 'Sahid',
-        ...
-    }
-}
-```
-
-
