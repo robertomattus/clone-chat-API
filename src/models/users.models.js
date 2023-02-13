@@ -7,11 +7,11 @@ const Users = db.define('users', {
         primaryKey: true,
         autoIncrement: true
     },
-    first_name: {
+    firstName: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    last_name: {
+    lastName: {
         type: DataTypes.STRING,
         defaultValue: ''
     },
@@ -24,10 +24,10 @@ const Users = db.define('users', {
         type: DataTypes.String(18),
         allowNull: false
     },
-    profile_image: {
+    profileImage: {
         type: DataTypes.STRING
     },  
-    is_active:{
+    isActive:{
         type: DataTypes.BOOLEAN,
         defaultValue: true
     },

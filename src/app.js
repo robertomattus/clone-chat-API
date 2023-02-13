@@ -1,8 +1,8 @@
 const express = require('express')
 const responseHandlers = require('./utils/handleResponses')
-//const chatRouter
+const userRouter = require('./users/users.router')
 const db = require('./utils/database')
-//const initModels
+const initModels = require('./models/initModels')
 
 const app = express()
 app.use(express.json())
@@ -23,7 +23,7 @@ db.sync()
         console.log(err)
     })
 
-//initModels()
+initModels()
 
 app.get('/', (req, res) => {
     responseHandlers.success({
@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
     })
 })
 
-//app.use('/api/v1', chatRouter)
+app.use('/api/v1', userRouter)
 
 app.use('*', (req, res)=> {
     responseHandlers.error({

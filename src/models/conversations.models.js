@@ -7,18 +7,18 @@ const Conversations = db.define('conversations', {
         primaryKey: true,
         autoIncrement: true,
     },
-    profile_image: {
+    profileImage: {
         type: DataTypes.STRING
     },
     name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    created_by: {
+    createdBy: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    is_group: {
+    isGroup: {
         type: DataTypes.BOOLEAN,
         defaultValue: true
     }

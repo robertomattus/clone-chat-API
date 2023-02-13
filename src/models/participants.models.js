@@ -9,7 +9,7 @@ const Participants = db.define('participants', {
         primaryKey: true,
         autoIncrement: true
     },
-    user_id: {
+    userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
@@ -17,7 +17,7 @@ const Participants = db.define('participants', {
             key: 'id'
         }
     },
-    conversation_id: {
+    conversationId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references:{
@@ -25,7 +25,7 @@ const Participants = db.define('participants', {
             key: 'id'
         }
     },
-    is_admin: {
+    isAdmin: {
         type: DataTypes.BOOLEAN,
         defaultValue: true
     }

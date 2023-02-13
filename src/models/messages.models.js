@@ -12,7 +12,7 @@ const Messages = db.define('messages', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    participant_id: {
+    participantId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
