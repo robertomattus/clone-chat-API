@@ -8,7 +8,7 @@ const getAllUsers = (req, res) => {
                 res,
                 data,
                 status: 200,
-                message: 'All users collected succesfully'
+                message: 'Getting all users'
             })
         })
         .catch(err => {
@@ -16,13 +16,13 @@ const getAllUsers = (req, res) => {
                 res,
                 data: err,
                 status: 400,
-                message: 'Error showing all users'
+                message: 'Something bad getting all users'
             })
         })
 }
 
 const getUserById = (req, res) => {
-    const id = Number(req.params.id)
+    const id = req.params.id
     userControllers.findUserById(id)
         .then(data => {
             if(data){
@@ -30,13 +30,13 @@ const getUserById = (req, res) => {
                     res,
                     data,
                     status: 200,
-                    message: `User with id: ${id}`
+                    message: `Getting user with ID: ${id}`
                 })
             } else {
                 handleResponses.error({
                     res,
                     status: 404,
-                    message: 'User not found'
+                    message: `User with ID: ${id} not found`
                 })
             }
         })
@@ -45,7 +45,7 @@ const getUserById = (req, res) => {
                 res,
                 data: err,
                 status: 400,
-                message: 'Error showing this user'
+                message: 'Something bad getting this user'
             })
         })
 }
@@ -58,7 +58,7 @@ const postNewUser = (req, res) => {
                 res,
                 data,
                 status: 201,
-                message: 'User created succesfully'
+                message: `User created succesfully with id: ${data.id}`
             })
         })
         .catch(err => {
@@ -66,13 +66,21 @@ const postNewUser = (req, res) => {
                 res,
                 data: err,
                 status: 400,
-                message: 'Error creating user'
+                message: 'Error ocurred trying to create a new user',
+                fields: {
+                    firstName : 'String',
+                    lastName : 'String',
+                    email: 'example@example.com',
+                    password: 'String',
+                    profileImage: 'example.com/image.png',
+                    phone : '+52 1234 123 123'
+                }
             })
         })
 }
 
 const deleteUser = (req, res) => {
-    const id = Number(req.params.id)
+    const id = req.params.id
     userControllers.deleteUser(id)
         .then(data => {
             if(data){
@@ -86,7 +94,7 @@ const deleteUser = (req, res) => {
                 handleResponses.error({
                     res,
                     status: 404,
-                    message: 'User not found'
+                    message: `User with ID ${id} not found`
                 })
             }
         })
@@ -95,13 +103,13 @@ const deleteUser = (req, res) => {
                 res,
                 data: err,
                 status: 400,
-                message: 'Error deleting user'
+                message: `Error ocurred trying to delete user with ID ${id}`
             })
         })
 }
 
 const patchUser = (req, res) => {
-    const id = Number(req.params.id)
+    const id = req.params.id
     const userObj = req.body
     userControllers.updateUser(id, userObj)
         .then(data => {
@@ -110,13 +118,21 @@ const patchUser = (req, res) => {
                     res,
                     data,
                     status: 200,
-                    message: `Post with id: ${id} updated succesfully`
+                    message: `User with id: ${id} modified succesfully`
                 })
             } else {
                 handleResponses.error({
                     res,
                     status: 404,
-                    message: 'User not found'
+                    message: `User with ID ${id} not found`,
+                    fields: {
+                        firstName : 'String',
+                        lastName : 'String',
+                        email: 'example@example.com',
+                        password: 'String',
+                        profileImage: 'example.com/image.png',
+                        phone : '+52 1234 123 123'
+                    }
                 })
             }
         })
@@ -125,7 +141,15 @@ const patchUser = (req, res) => {
                 res,
                 data: err,
                 status: 400,
-                message: 'Edit error with user'
+                message: `Error ocurred trying to update user with ID ${id}`,
+                fields: {
+                    firstName : 'String',
+                    lastName : 'String',
+                    email: 'example@example.com',
+                    password: 'String',
+                    profileImage: 'example.com/image.png',
+                    phone : '+52 1234 123 123'
+                }
             })  
         })
 }

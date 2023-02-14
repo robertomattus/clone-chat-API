@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use('/api/v1', userRouter)
+app.use('/api/v1/users', userRouter)
 
 app.use('*', (req, res)=> {
     responseHandlers.error({
