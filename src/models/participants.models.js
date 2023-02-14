@@ -5,12 +5,11 @@ const Users = require('./users.models')
 
 const Participants = db.define('participants', {
     id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+        type: DataTypes.UUID,
+        primaryKey: true
     },
     userId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: Users,
@@ -18,7 +17,7 @@ const Participants = db.define('participants', {
         }
     },
     conversationId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false,
         references:{
             model: Conversations,
@@ -27,7 +26,7 @@ const Participants = db.define('participants', {
     },
     isAdmin: {
         type: DataTypes.BOOLEAN,
-        defaultValue: true
+        defaultValue: false
     }
 })
 

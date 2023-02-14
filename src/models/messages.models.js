@@ -4,16 +4,15 @@ const Participants = require('./participants.models')
 
 const Messages = db.define('messages', {
     id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+        type: DataTypes.UUID,
+        primaryKey: true
     },
     content: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     },
     participantId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: Participants,
@@ -21,8 +20,8 @@ const Messages = db.define('messages', {
         }
     },
     status: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+        type: DataTypes.STRING,
+        defaultValue: 'Sent'
     }
 })
 
