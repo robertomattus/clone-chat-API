@@ -30,7 +30,7 @@ const getUserById = (req, res) => {
                     res,
                     data,
                     status: 200,
-                    message: 'User with id' + data.id
+                    message: `User with id: ${id}`
                 })
             } else {
                 handleResponses.error({

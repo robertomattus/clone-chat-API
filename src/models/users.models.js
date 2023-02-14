@@ -16,12 +16,12 @@ const Users = db.define('users', {
         defaultValue: ''
     },
     email: {
-        type: DataTypes.String(31),
+        type: DataTypes.STRING,
         allowNull: false,
         unique: true
     },
     password: {
-        type: DataTypes.String(18),
+        type: DataTypes.STRING,
         allowNull: false
     },
     profileImage: {
@@ -32,7 +32,7 @@ const Users = db.define('users', {
         defaultValue: true
     },
     phone: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: false
     }
 })
