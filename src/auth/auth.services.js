@@ -24,7 +24,11 @@ const postLogin = (req, res) => {
                 handleResponses.error({
                     res,
                     status: 401,
-                    message: 'Invalid credentials'
+                    message: 'Invalid credentials',
+                    fields: {
+                        email: 'example@example.com',
+                        password: 'example'
+                    }
                 })
             }
         })
