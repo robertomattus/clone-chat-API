@@ -14,7 +14,7 @@ passport.use(new Strategy(passportConfigs, (tokenDecoded, done) => {
             if(data){
                 done(null, tokenDecoded)
             } else {
-                done(null, false)
+                done(null, false, {message: 'Incorrect token'})
             }
         })
         .catch(err => {
@@ -22,4 +22,4 @@ passport.use(new Strategy(passportConfigs, (tokenDecoded, done) => {
         })
 }))
 
-module.exports = passport
+module.exports = passport.authenticate('jwt', {session: false})

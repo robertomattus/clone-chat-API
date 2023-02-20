@@ -12,7 +12,7 @@ const postLogin = (req, res) => {
                     email: data.email,
                     firstName: data.firstName
                 }, 'academlo', {
-                    expiresIn: 30
+                    expiresIn: '1d'
                 })
                 handleResponses.success({
                     res,
