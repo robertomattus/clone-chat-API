@@ -12,7 +12,19 @@ const findAllConversationsByUser = async (userId) => {
             }
         }
     })
-    return data
+    return data.map(({
+        id, 
+        name, 
+        profileImage, 
+        isGroup, 
+        createdAt
+    }) => ({
+        id, 
+        name, 
+        profileImage, 
+        isGroup, 
+        createdAt
+    }))
 }
 
 const createConversation = async (conversationObj, userOwnerId, userGuestId) => {

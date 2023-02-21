@@ -73,3 +73,12 @@ En la peticion se valida si el id del invitado existe
 Se crea la conversacion
 Se crea el participante owner
 Se crea el participante guest
+
+Conversation Router
+
+baseUrl -> /api/v1/conversations
+
+/
+/:conversation_id
+/:conversation_id/messages
+/:conversation_id/participants
