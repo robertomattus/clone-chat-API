@@ -15,7 +15,7 @@ router.route('/')
 //     .delete()
 
 router.route('/:conversation_id/messages')
-    .get(passportJwt, messageServices.getAllConversationsByUser)
+    .get(passportJwt, messageServices.getAllMessagesByConversation)
 //     .post()
 
 module.exports = router
